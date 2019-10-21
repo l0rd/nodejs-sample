@@ -1,0 +1,52 @@
+---
+apiVersion: 1.0.0
+metadata:
+  generateName: guestbook-nodejs-sample-
+projects:
+  -
+    name: nodejs-mongodb-sample
+    source:
+      type: git
+      location: "https://github.com/l0rd/nodejs-sample"
+components:
+  - type: chePlugin
+    id: che-incubator/typescript/latest
+    memoryLimit: 512Mi
+  - type: kubernetes
+    alias: guestbook-frontend
+    reference: https://raw.githubusercontent.com/l0rd/nodejs-sample/master/kubernetes-manifests/guestbook-frontend.deployment.yaml
+    memoryLimit: 512Mi
+  - type: kubernetes
+    alias: guestbook-backend
+    reference: https://raw.githubusercontent.com/l0rd/nodejs-sample/master/kubernetes-manifests/guestbook-backend.deployment.yaml
+    memoryLimit: 512Mi
+  - type: kubernetes
+    alias: mongodb
+    reference: https://raw.githubusercontent.com/l0rd/nodejs-sample/master/kubernetes-manifests/mongo.deployment.yaml
+    memoryLimit: 512Mi
+    volumes:
+      - name: mongo-storage
+        containerPath: /var/lib/mongodb/data 
+commands:
+  -
+    name: run the application
+    actions:
+    - type: exec
+      component: nodejs
+      command: npm install && node --inspect=9229 app.js
+      workdir: ${CHE_PROJECTS_ROOT}/nodejs-mongodb-sample
+  -
+    name: Debug remote node application
+    actions:
+    - type: vscode-launch
+      referenceContent: |
+        {
+        "version": "0.2.0",
+        "configurations": [
+          {
+            "type": "node",
+            "name": "Debug (Attach) - Remote",
+            "request": "attach",
+            "port": 9229
+          }]
+        }

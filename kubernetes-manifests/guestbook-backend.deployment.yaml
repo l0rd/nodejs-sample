@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: node-guestbook-backend
+        image: mariolet/nodejs-sample-backend
         ports:
         - name: http-server
           containerPort: 8080
