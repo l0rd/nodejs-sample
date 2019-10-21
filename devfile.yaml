@@ -11,28 +11,21 @@ projects:
 components:
   - type: chePlugin
     id: che-incubator/typescript/latest
-    memoryLimit: 512Mi
   - type: kubernetes
     alias: guestbook-frontend
     reference: https://raw.githubusercontent.com/l0rd/nodejs-sample/master/kubernetes-manifests/guestbook-frontend.deployment.yaml
-    memoryLimit: 512Mi
   - type: kubernetes
     alias: guestbook-backend
     reference: https://raw.githubusercontent.com/l0rd/nodejs-sample/master/kubernetes-manifests/guestbook-backend.deployment.yaml
-    memoryLimit: 512Mi
   - type: kubernetes
     alias: mongodb
     reference: https://raw.githubusercontent.com/l0rd/nodejs-sample/master/kubernetes-manifests/mongo.deployment.yaml
-    memoryLimit: 512Mi
-    volumes:
-      - name: mongo-storage
-        containerPath: /var/lib/mongodb/data 
 commands:
   -
     name: run the application
     actions:
     - type: exec
-      component: nodejs
+      component: guestbook-backend
       command: npm install && node --inspect=9229 app.js
       workdir: ${CHE_PROJECTS_ROOT}/nodejs-mongodb-sample
   -

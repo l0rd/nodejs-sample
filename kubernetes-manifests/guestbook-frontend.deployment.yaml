@@ -27,4 +27,4 @@ spec:
         - name: PORT
           value: "8080"
         - name: GUESTBOOK_API_ADDR
-          value: node-guestbook-backend:8080
+          value: localhost:8081
