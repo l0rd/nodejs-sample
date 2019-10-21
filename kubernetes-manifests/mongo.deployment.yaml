@@ -27,3 +27,8 @@ spec:
           image: mongo:4
           ports:
             - containerPort: 27017
+          resources:
+            limits:
+              memory: 512M
+            requests:
+              memory: 512M
