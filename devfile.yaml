@@ -15,11 +15,20 @@ components:
     alias: guestbook-frontend
     reference: https://raw.githubusercontent.com/l0rd/nodejs-sample/master/kubernetes-manifests/guestbook-frontend.deployment.yaml
   - type: kubernetes
+    alias: guestbook-frontend-service
+    reference: https://raw.githubusercontent.com/l0rd/nodejs-sample/master/kubernetes-manifests/guestbook-frontend.service.yaml
+  - type: kubernetes
     alias: guestbook-backend
     reference: https://raw.githubusercontent.com/l0rd/nodejs-sample/master/kubernetes-manifests/guestbook-backend.deployment.yaml
   - type: kubernetes
+    alias: guestbook-backend-service
+    reference: https://raw.githubusercontent.com/l0rd/nodejs-sample/master/kubernetes-manifests/guestbook-backend.service.yaml
+  - type: kubernetes
     alias: mongodb
     reference: https://raw.githubusercontent.com/l0rd/nodejs-sample/master/kubernetes-manifests/mongo.deployment.yaml
+  - type: kubernetes
+    alias: mongodb-service
+    reference: https://raw.githubusercontent.com/l0rd/nodejs-sample/master/kubernetes-manifests/mongo.service.yaml
 commands:
   -
     name: run the application
