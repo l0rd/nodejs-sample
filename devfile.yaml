@@ -4,7 +4,7 @@ metadata:
   generateName: guestbook-nodejs-sample-
 projects:
   -
-    name: nodejs-mongodb-sample
+    name: guestbook-nodejs-sample
     source:
       type: git
       location: "https://github.com/l0rd/nodejs-sample"
@@ -14,6 +14,10 @@ components:
   - type: kubernetes
     alias: guestbook-frontend
     reference: https://raw.githubusercontent.com/l0rd/nodejs-sample/master/kubernetes-manifests/guestbook-frontend.deployment.yaml
+    mountSources: true
+    entrypoints:
+      - command: ['sleep']
+        args: ['infinity']
   - type: kubernetes
     alias: guestbook-frontend-service
     reference: https://raw.githubusercontent.com/l0rd/nodejs-sample/master/kubernetes-manifests/guestbook-frontend.service.yaml
@@ -30,15 +34,13 @@ components:
     alias: mongodb-service
     reference: https://raw.githubusercontent.com/l0rd/nodejs-sample/master/kubernetes-manifests/mongo.service.yaml
 commands:
-  -
-    name: run the application
+  - name: Run frontend
     actions:
     - type: exec
-      component: guestbook-backend
+      component: guestbook-frontend
       command: npm install && node --inspect=9229 app.js
-      workdir: ${CHE_PROJECTS_ROOT}/nodejs-mongodb-sample
-  -
-    name: Debug remote node application
+      workdir: ${CHE_PROJECTS_ROOT}/guestbook-nodejs-sample/src/frontend
+  - name: Debug remote node application
     actions:
     - type: vscode-launch
       referenceContent: |
