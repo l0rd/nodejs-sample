@@ -32,3 +32,9 @@ spec:
               memory: 512M
             requests:
               memory: 512M
+          volumeMounts:
+            - mountPath: /data/db
+              name: mongo-data-volume
+      volumes:
+        - name: mongo-data-volume
+          emptyDir: {}
