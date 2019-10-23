@@ -27,4 +27,4 @@ spec:
         - name: PORT
           value: "8081"
         - name: GUESTBOOK_DB_ADDR
-          value: node-guestbook-mongodb:27017
+          value: localhost:27017
