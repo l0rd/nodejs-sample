@@ -23,9 +23,15 @@ components:
   - type: kubernetes
     alias: guestbook-frontend-service
     reference: https://raw.githubusercontent.com/l0rd/nodejs-sample/master/kubernetes-manifests/guestbook-frontend.service.yaml
+    env:
+      - name: GUESTBOOK_API_ADDR
+        value: localhost:8081
   - type: kubernetes
     alias: guestbook-backend
     reference: https://raw.githubusercontent.com/l0rd/nodejs-sample/master/kubernetes-manifests/guestbook-backend.deployment.yaml
+    env:
+      - name: GUESTBOOK_DB_ADDR
+        value: localhost:27017
   - type: kubernetes
     alias: guestbook-backend-service
     reference: https://raw.githubusercontent.com/l0rd/nodejs-sample/master/kubernetes-manifests/guestbook-backend.service.yaml
