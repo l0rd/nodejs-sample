@@ -24,9 +24,9 @@ NAMESPACE="nodejs-sample"
 kubectl create namespace "${NAMESPACE}"
 kubectl apply -n "${NAMESPACE}" -f "${K8S_MANIFEST_DIR}"/mongo.deployment.yaml
 kubectl apply -n "${NAMESPACE}" -f "${K8S_MANIFEST_DIR}"/mongo.service.yaml
-kubectl apply -n "${NAMESPACE}" -f "${K8S_MANIFEST_DIR}"/guestbook-backend.deployment.yaml
+kubectl apply -n "${NAMESPACE}" -f "${K8S_MANIFEST_DIR}"/guestbook-backend.deployment.prod.yaml
 kubectl apply -n "${NAMESPACE}" -f "${K8S_MANIFEST_DIR}"/guestbook-backend.service.yaml
-kubectl apply -n "${NAMESPACE}" -f "${K8S_MANIFEST_DIR}"/guestbook-frontend.deployment.yaml
+kubectl apply -n "${NAMESPACE}" -f "${K8S_MANIFEST_DIR}"/guestbook-frontend.deployment.prod.yaml
 kubectl apply -n "${NAMESPACE}" -f "${K8S_MANIFEST_DIR}"/guestbook-frontend.service.yaml
 ```
 
