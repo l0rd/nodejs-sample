@@ -2,7 +2,7 @@
 
 ## Developer Workspace
 
-[![Contribute](https://che.openshift.io/factory/resources/factory-contribute.svg)](https://che.openshift.io/f?url=https://raw.githubusercontent.com/l0rd/nodejs-sample/master/devfile.yaml)
+[![Contribute](https://www.eclipse.org/che/contribute.svg)](https://che.openshift.io/f?url=https://raw.githubusercontent.com/l0rd/nodejs-sample/master/devfile.yaml)
 
 This Che Factory can also be invoked with any host:
 {hostURL}/f?url=https://github.com/l0rd/nodejs-sample/
